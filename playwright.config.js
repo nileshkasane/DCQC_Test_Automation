@@ -30,6 +30,8 @@ export default defineConfig({
     baseURL: BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Grant mic, camera, location so browser doesn't show permission popups */
+    permissions: ['microphone', 'camera', 'geolocation'],
   },
 
   /* Configure projects for major browsers */
