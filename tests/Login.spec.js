@@ -1,11 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { BASE_URL } from '../config/constants.js';
-import { login } from '../utils/login.js';
+import { LoginPage } from '../pages/LoginPage.js';
 
 test('Login', async ({ page }) => {
+
   await page.goto(BASE_URL);
 
-  await expect(page).toHaveTitle("Data Collection & Quality Check");
+  const loginPage = new LoginPage(page);
 
-  await login(page);
+  await loginPage.verifyPageTitle();
+  await loginPage.login();
+
 });
